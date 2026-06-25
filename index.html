@@ -304,23 +304,23 @@
         </div>
 
         <div class="prompts-section">
-          <p class="eyebrow">Ejemplos de prompts para nuestro stack</p>
+          <p class="eyebrow">Demo paso a paso · El mismo plugin, de cero a producción</p>
           <div class="prompts-grid">
             <article class="prompt-card reveal">
-              <div class="prompt-label">Plugin C#/.NET</div>
-              <blockquote class="prompt-text">"Crea un plugin de Dynamics que se dispare en el Update de la cuenta, valide el campo de bloqueo y registre el resultado en una nota. Añade pruebas unitarias con FakeXrmEasy."</blockquote>
+              <div class="prompt-label">1 · Crear desde cero</div>
+              <blockquote class="prompt-text">"Crea un plugin de Dynamics 365 en C# para la entidad oportunidad que se dispare en Create y Update. Cuando cambie la probabilidad de cierre, recalcula los ingresos ponderados multiplicando el importe estimado por la probabilidad y lo guarda en el campo de ingresos ponderados."</blockquote>
             </article>
             <article class="prompt-card reveal">
-              <div class="prompt-label">Refactor</div>
-              <blockquote class="prompt-text">"Extrae la lógica de resolución de lookups a un servicio reutilizable, actualiza todas las llamadas y comprueba que el proyecto compila."</blockquote>
+              <div class="prompt-label">2 · Ampliar con validaciones</div>
+              <blockquote class="prompt-text">"Amplía el plugin anterior: si la probabilidad supera el 80% pero el importe estimado está vacío, lanza una excepción en español indicando que el importe es obligatorio para oportunidades de alta probabilidad."</blockquote>
             </article>
             <article class="prompt-card reveal">
-              <div class="prompt-label">Documentación</div>
-              <blockquote class="prompt-text">"Genera un README con la arquitectura de este repositorio, los puntos de integración y cómo ejecutar los tests."</blockquote>
+              <div class="prompt-label">3 · Generar tests</div>
+              <blockquote class="prompt-text">"Crea las pruebas unitarias con FakeXrmEasy para el plugin que acabamos de crear. Cubre: probabilidad 0%, 75% con importe, 85% sin importe y update sin cambios. Patrón Arrange / Act / Assert."</blockquote>
             </article>
             <article class="prompt-card reveal">
-              <div class="prompt-label">Integración SAP / SharePoint</div>
-              <blockquote class="prompt-text">"Revisa esta clase de integración con SAP, identifica condiciones de carrera y propón correcciones con pruebas."</blockquote>
+              <div class="prompt-label">4 · Refactorizar</div>
+              <blockquote class="prompt-text">"Refactoriza el plugin extrayendo la lógica de cálculo y validación a una clase estática OportunidadHelper. Usa constantes para los nombres de campos. Actualiza los tests para que sigan pasando."</blockquote>
             </article>
           </div>
         </div>
