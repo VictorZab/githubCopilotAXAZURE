@@ -163,24 +163,27 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
   const videoPath = 'https://storagevzp.blob.core.windows.net/docs/Tutorial.mp4';
 
-  const probe = document.createElement('video');
-  probe.preload = 'none';
-  probe.src = videoPath;
+  const video = document.createElement('video');
+  video.src          = videoPath;
+  video.controls     = true;
+  video.preload      = 'metadata';
+  video.style.cssText = 'width:100%;display:block;border-radius:0 0 20px 20px;';
+  video.setAttribute('aria-label', 'Demo de GitHub Copilot en AXAZURE');
 
-  probe.addEventListener('loadedmetadata', () => {
-    placeholder.remove();
-    const video = document.createElement('video');
-    video.src          = videoPath;
-    video.controls     = true;
-    video.preload      = 'metadata';
+  video.addEventListener('loadedmetadata', () => {
     video.playbackRate = 1.5;
-    video.style.cssText = 'width:100%;display:block;border-radius:0 0 20px 20px;';
-    video.setAttribute('aria-label', 'Demo de GitHub Copilot en AXAZURE');
-    // Mantener la velocidad 1.5× si el usuario no la cambia manualmente
-    video.addEventListener('ratechange', () => {}, { once: true });
-    container.appendChild(video);
-    video.playbackRate = 1.5; // forzar tras insertar en el DOM
   });
+  video.addEventListener('play', () => {
+    video.playbackRate = 1.5;
+  });
+
+  video.addEventListener('error', () => {
+    if (placeholder) placeholder.style.display = 'flex';
+    video.remove();
+  });
+
+  if (placeholder) placeholder.remove();
+  container.appendChild(video);
 })();
 
 /* ── SCREENSHOT HOVER TILT ───────────────────────────────── */
