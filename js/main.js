@@ -161,7 +161,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   const placeholder = document.getElementById('video-placeholder');
   if (!container) return;
 
-  const videoPath = 'assets/video/demo.mp4';
+  const videoPath = 'https://storagevzp.blob.core.windows.net/docs/Tutorial.mp4';
 
   const probe = document.createElement('video');
   probe.preload = 'none';
