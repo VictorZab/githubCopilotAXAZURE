@@ -170,12 +170,16 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
   probe.addEventListener('loadedmetadata', () => {
     placeholder.remove();
     const video = document.createElement('video');
-    video.src      = videoPath;
-    video.controls = true;
-    video.preload  = 'metadata';
+    video.src          = videoPath;
+    video.controls     = true;
+    video.preload      = 'metadata';
+    video.playbackRate = 1.5;
     video.style.cssText = 'width:100%;display:block;border-radius:0 0 20px 20px;';
     video.setAttribute('aria-label', 'Demo de GitHub Copilot en AXAZURE');
+    // Mantener la velocidad 1.5× si el usuario no la cambia manualmente
+    video.addEventListener('ratechange', () => {}, { once: true });
     container.appendChild(video);
+    video.playbackRate = 1.5; // forzar tras insertar en el DOM
   });
 })();
 
