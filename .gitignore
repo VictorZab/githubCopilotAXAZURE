@@ -1,0 +1,13 @@
+# Visual Studio / IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
